@@ -42,7 +42,7 @@ const VideosList = () => {
       </Flex>
       <Flex mt={4}>
         {loading ? (
-          <Skeleton startColor="gray.50" endColor="gray.100" h={4} w={10} />
+          <Skeleton borderRadius={10} h={4} w={10} />
         ) : (
           <Text>Count: {count}</Text>
         )}
@@ -54,25 +54,13 @@ const VideosList = () => {
           marginTop={8}
         >
           <GridItem as={"div"}>
-            <Skeleton
-              startColor="gray.50"
-              endColor="gray.100"
-              minHeight={300}
-            />
+            <Skeleton borderRadius={10} minHeight={300} />
           </GridItem>
           <GridItem as={"div"}>
-            <Skeleton
-              startColor="gray.50"
-              endColor="gray.100"
-              minHeight={300}
-            />
+            <Skeleton borderRadius={10} minHeight={300} />
           </GridItem>
           <GridItem as={"div"}>
-            <Skeleton
-              startColor="gray.50"
-              endColor="gray.100"
-              minHeight={300}
-            />
+            <Skeleton borderRadius={10} minHeight={300} />
           </GridItem>
         </Grid>
       )}
@@ -91,13 +79,13 @@ const VideosList = () => {
             return (
               <GridItem as={"div"} key={item.id}>
                 <Box
-                  bg={"gray.50"}
                   minHeight={300}
+                  borderRadius={10}
+                  overflow="hidden"
                   cursor={"pointer"}
                   _hover={{ boxShadow: "lg" }}
                   transition="all 0.3s ease-in-out"
-                  borderWidth={1}
-                  borderColor={"gray.100"}
+                  borderWidth={2}
                 >
                   <Image
                     objectFit="cover"

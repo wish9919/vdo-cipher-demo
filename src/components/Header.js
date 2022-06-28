@@ -10,10 +10,11 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-  const navBg = useColorModeValue("gray.200", "gray.700");
+  const navBg = useColorModeValue("gray.300", "gray.900");
   return (
     <header>
       <Flex
@@ -29,9 +30,11 @@ const Header = () => {
           w="full"
           maxW={"6xl"}
         >
-          <Heading size={"md"} as="h2">
-            VdoCipher Demo
-          </Heading>
+          <Link to="/">
+            <Heading size={"md"} as="h2">
+              VdoCipher Demo
+            </Heading>
+          </Link>
           <Spacer />
 
           <Button
@@ -46,7 +49,11 @@ const Header = () => {
             <Text>Username</Text>
           </Button>
           <Button colorScheme={"gray"} onClick={toggleColorMode}>
-            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            {colorMode === "light" ? (
+              <MoonIcon color={"gray.700"} />
+            ) : (
+              <SunIcon />
+            )}
           </Button>
         </Flex>
       </Flex>

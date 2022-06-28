@@ -21,7 +21,7 @@ const LoginPage = () => {
       >
         <Flex
           direction={"column"}
-          minW="sm"
+          minW={["xs", "sm"]}
           borderRadius={6}
           p={10}
           bg={formBackground}
@@ -31,14 +31,12 @@ const LoginPage = () => {
           </Heading>
 
           <Input
-            bg="gray.200"
             variant={"filled"}
             type="email"
             placeholder="hello@example.com"
             mb={4}
           />
           <Input
-            bg="gray.200"
             variant={"filled"}
             mb={6}
             type="password"
