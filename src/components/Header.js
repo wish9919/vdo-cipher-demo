@@ -1,21 +1,24 @@
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Avatar,
-  Box,
+  Button,
   Flex,
   Heading,
-  List,
-  ListItem,
   Spacer,
   Text,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 
 const Header = () => {
+  const { toggleColorMode, colorMode } = useColorMode();
+  const navBg = useColorModeValue("gray.200", "gray.700");
   return (
     <header>
       <Flex
         minWidth={"max-content"}
-        backgroundColor={"teal.500"}
+        backgroundColor={navBg}
         paddingY={"2"}
         minHeight={"16"}
       >
@@ -26,14 +29,25 @@ const Header = () => {
           w="full"
           maxW={"6xl"}
         >
-          <Heading color={"white"} size={"md"} as="h2">
+          <Heading size={"md"} as="h2">
             VdoCipher Demo
           </Heading>
           <Spacer />
-          <Flex alignItems={"center"}>
+
+          <Button
+            display={"flex"}
+            cursor={"pointer"}
+            transition={"all 0.2s ease"}
+            borderRadius={10}
+            alignItems={"center"}
+            mr={3}
+          >
             <Avatar size="sm" mr={"2"} cursor={"pointer"} />
-            <Text color="white">Username</Text>
-          </Flex>
+            <Text>Username</Text>
+          </Button>
+          <Button colorScheme={"gray"} onClick={toggleColorMode}>
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
         </Flex>
       </Flex>
     </header>

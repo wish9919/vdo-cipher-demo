@@ -1,18 +1,16 @@
 import React from "react";
-import Header from "./components/Header";
-import VideosList from "./components/VideosList";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <div
-        id="embedBox"
-        style={{ width: 1280, maxWidth: "100%", height: "auto" }}
-      ></div>
-
-      <VideosList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
