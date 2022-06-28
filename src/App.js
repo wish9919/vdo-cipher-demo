@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "./components/Header";
 import VideosList from "./components/VideosList";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Header />
       <div
         id="embedBox"
         style={{ width: 1280, maxWidth: "100%", height: "auto" }}

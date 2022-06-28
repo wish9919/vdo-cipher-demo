@@ -1,6 +1,8 @@
+import { AddIcon } from "@chakra-ui/icons";
 import {
   Badge,
   Box,
+  Button,
   Container,
   Flex,
   Grid,
@@ -29,9 +31,15 @@ const VideosList = () => {
 
   return (
     <Container paddingY={10} maxW={"6xl"}>
-      <Heading size={"lg"} as="h3">
-        Videos List
-      </Heading>
+      <Flex flexDirection={"row"} justifyContent="space-between">
+        <Heading size={"lg"} as="h3">
+          Videos List
+        </Heading>
+
+        <Button leftIcon={<AddIcon />} colorScheme={"teal"}>
+          Add Video
+        </Button>
+      </Flex>
       <Flex mt={4}>
         {loading ? (
           <Skeleton startColor="gray.50" endColor="gray.100" h={4} w={10} />
