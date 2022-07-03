@@ -45,7 +45,7 @@ const VideosList = () => {
         {loading ? (
           <Skeleton borderRadius={10} h={4} w={10} />
         ) : (
-          <Text>Count: {count}</Text>
+          <Text>{count} Results</Text>
         )}
       </Flex>
       {loading && (
