@@ -14,7 +14,7 @@ import {
   ListItem,
   useToast,
 } from "@chakra-ui/react";
-import axios from "axios";
+import api from "../utils/axios";
 import React, { useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useForm } from "react-hook-form";
@@ -141,7 +141,7 @@ const AddVideo = () => {
     formData.append("success_action_redirect", "");
     formData.append("file", file);
 
-    await axios
+    await api
       .post(uploadData["clientPayload"]["uploadLink"], formData, {
         headers: {
           "Content-Type": "multipart/form-data",

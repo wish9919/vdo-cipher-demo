@@ -1,4 +1,5 @@
-import { Box, Flex, Spinner } from "@chakra-ui/react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Flex, Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { PlayerAPI } from "../data";
 import VideoPlayer from "./VideoPlayer";
