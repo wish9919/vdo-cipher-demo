@@ -1,4 +1,4 @@
-import api from "./index";
+import api from "../utils/axios";
 
 const PlayerAPI = {
   getVideos: async (page, limit) => {
@@ -12,7 +12,7 @@ const PlayerAPI = {
       .then((res) => res.data);
   },
   getVideo: async (id) => {
-    return api.post(`/videos/${id}`).then((res) => res.data);
+    return api.get(`/videos/${id}`).then((res) => res.data);
   },
 };
 

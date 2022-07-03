@@ -13,6 +13,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PlayerAPI from "../data/PlayerAPI";
 import { getStatus } from "../utils/getStatus";
 
@@ -77,32 +78,34 @@ const VideosList = () => {
         >
           {videos.map((item, i) => {
             return (
-              <GridItem as={"div"} key={item.id}>
-                <Box
-                  minHeight={300}
-                  borderRadius={10}
-                  overflow="hidden"
-                  cursor={"pointer"}
-                  _hover={{ boxShadow: "lg" }}
-                  transition="all 0.3s ease-in-out"
-                  borderWidth={2}
-                >
-                  <Image
-                    objectFit="cover"
-                    height={200}
-                    src={item.poster}
-                    alt={item.title}
-                  />
-                  <Box p={4}>
-                    <Heading as={"h6"} size="sm">
-                      {item.title}
-                    </Heading>
-                    <Badge mt={2} colorScheme={getStatus(item.status).color}>
-                      {getStatus(item.status).title}
-                    </Badge>
+              <Link to={`/video/${item.id}`} key={item.id}>
+                <GridItem as={"div"}>
+                  <Box
+                    minHeight={300}
+                    borderRadius={10}
+                    overflow="hidden"
+                    cursor={"pointer"}
+                    _hover={{ boxShadow: "lg" }}
+                    transition="all 0.3s ease-in-out"
+                    borderWidth={2}
+                  >
+                    <Image
+                      objectFit="cover"
+                      height={200}
+                      src={item.poster}
+                      alt={item.title}
+                    />
+                    <Box p={4}>
+                      <Heading as={"h6"} size="sm">
+                        {item.title}
+                      </Heading>
+                      <Badge mt={2} colorScheme={getStatus(item.status).color}>
+                        {getStatus(item.status).title}
+                      </Badge>
+                    </Box>
                   </Box>
-                </Box>
-              </GridItem>
+                </GridItem>
+              </Link>
             );
           })}
         </Grid>
