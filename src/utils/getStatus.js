@@ -10,7 +10,11 @@ export const getStatus = (text) => {
         title: "Pre-Upload",
         color: "gray",
       };
-
+    case "Queued":
+      return {
+        title: "Processing",
+        color: "orange",
+      };
     default:
       return {
         title: "No Status",

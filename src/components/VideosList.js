@@ -37,9 +37,11 @@ const VideosList = () => {
           Videos List
         </Heading>
 
-        <Button leftIcon={<AddIcon />} colorScheme={"blue"} color="white">
-          Add Video
-        </Button>
+        <Link to="/video/add">
+          <Button leftIcon={<AddIcon />} colorScheme={"blue"} color="white">
+            Add Video
+          </Button>
+        </Link>
       </Flex>
       <Flex mt={4}>
         {loading ? (

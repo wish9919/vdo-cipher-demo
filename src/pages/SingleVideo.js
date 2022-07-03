@@ -1,4 +1,4 @@
-import { ArrowBackIcon, AttachmentIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Alert,
   AlertIcon,
@@ -15,7 +15,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import UploadModal from "../components/UploadModal";
+
 import { PlayerAPI } from "../data";
 import { getStatus } from "../utils/getStatus";
 
@@ -101,11 +101,6 @@ const SingleVideo = () => {
               <Badge colorScheme={getStatus(data.status).color} fontSize="18px">
                 {getStatus(data.status).title}
               </Badge>
-              {data.status === "PRE-Upload" ? (
-                <UploadModal />
-              ) : (
-                <UploadModal title="Re-Upload Video" />
-              )}
             </Box>
           )}
         </Flex>
