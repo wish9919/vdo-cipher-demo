@@ -11,6 +11,9 @@ const PlayerAPI = {
       })
       .then((res) => res.data);
   },
+  getOtp: async (id) => {
+    return api.post(`/videos/${id}/otp`).then((res) => res.data);
+  },
   getVideo: async (id) => {
     return api.get(`/videos/${id}`).then((res) => res.data);
   },

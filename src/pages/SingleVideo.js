@@ -15,6 +15,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
+import PlayerWrapper from "../components/PlayerWrapper";
 
 import { PlayerAPI } from "../data";
 import { getStatus } from "../utils/getStatus";
@@ -108,12 +109,16 @@ const SingleVideo = () => {
         {/* Poster */}
         {!loading ? (
           <Box mt={5}>
-            <Image
-              alt="Video Cover"
-              borderRadius={10}
-              width={"100%"}
-              src={data.poster}
-            />
+            {data.status === "ready" ? (
+              <PlayerWrapper videoId={data.id} />
+            ) : (
+              <Image
+                alt="Video Cover"
+                borderRadius={10}
+                width={"100%"}
+                src={data.poster}
+              />
+            )}
           </Box>
         ) : (
           <Skeleton borderRadius={10} mt={5} height={300} />
