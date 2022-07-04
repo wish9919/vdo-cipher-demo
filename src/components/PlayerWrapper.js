@@ -17,7 +17,10 @@ const PlayerWrapper = ({ videoId }) => {
     setCurrentVideo(videoId);
 
     // fetch playback info
-    const result = await PlayerAPI.getOtp(id);
+    const result = await PlayerAPI.getOtp(id, {
+      ip: "75.157.40.63",
+      username: "username",
+    });
 
     if (result.success) {
       setLoading(false);

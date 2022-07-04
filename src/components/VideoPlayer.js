@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
 class VideoPlayer extends Component {
   constructor(props) {
     super(props);
+    this.container = createRef();
     this.state = {
       videoObject: null,
     };
@@ -22,17 +23,17 @@ class VideoPlayer extends Component {
   }
 
   loadPlayer() {
-    window.playerContainer = this.refs.container;
+    window.playerContainer = this.container.current;
     new window.VdoPlayer({
       otp: this.props.otp,
       playbackInfo: this.props.playbackInfo,
       theme: "9ae8bbe8dd964ddc9bdb932cca1cb59a",
-      container: this.refs.container,
+      container: this.container.current,
     });
   }
 
   render() {
-    return <div className="player" ref="container"></div>;
+    return <div className="player" ref={this.container}></div>;
   }
 }
 
